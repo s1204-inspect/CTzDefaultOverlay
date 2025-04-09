@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permdesc_disableKeyguard">Allows the app to disable the keylock and any associated password security. For example, the tablet disables the keylock when receiving an incoming phone call, then re-enables the keylock when the call is finished.</string>
+    <string name="wifi_p2p_frequency_conflict_message">"The tablet will temporarily disconnect from Wi-Fi while it's connected to %1$s"</string>
+</resources>

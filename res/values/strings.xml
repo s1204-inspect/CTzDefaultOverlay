@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="db_default_journal_mode">TRUNCATE</string>
+    <string name="db_wal_sync_mode">NORMAL</string>
+    <string name="config_persistentDataPackageName" />
+    <string name="config_mms_user_agent">Android-Mms/0.1</string>
+    <string name="config_mms_user_agent_profile_url">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
+    <string name="config_ims_package">com.mediatek.ims</string>
+    <string name="config_wifi_framework_sap_2G_channel_list">0</string>
+    <string name="config_wifi_random_mac_oui">00-0C-E7</string>
+    <string name="config_wallpaperCropperPackage">com.android.wallpaperpicker</string>
+    <string name="permdesc_disableKeyguard">Allows the app to disable the keylock and any associated password security. For example, the tablet disables the keylock when receiving an incoming phone call, then re-enables the keylock when the call is finished.</string>
+</resources>

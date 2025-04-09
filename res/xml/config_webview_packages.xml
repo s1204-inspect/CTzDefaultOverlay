@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<webviewproviders>
+    <webviewprovider description="Chromium WebView built in STS-TOTTORI" packageName="com.sts.tottori.chromium.webview" availableByDefault="true" />
+</webviewproviders>
