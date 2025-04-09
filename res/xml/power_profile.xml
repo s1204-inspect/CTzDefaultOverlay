@@ -1,27 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
+    <!-- Most values are the incremental current used by a feature,
+         in mA (measured at nominal voltage).
+         The default values are deliberately incorrect values.
+         OEM's must measure and provide actual values before
+         shipping a device.
+         Example real-world values are given in comments, but they
+         are totally dependent on the platform and can vary
+         significantly, so should be measured on the shipping platform
+         with a power meter. -->
+    <!-- Display related values. -->
+    <!-- Average battery current draw of display0 while in ambient mode, including backlight.
+         There must be one of these for each display, labeled:
+         ambient.on.display0, ambient.on.display1, etc...
+         Each display suffix number should match its ordinal in its display device config.
+    -->
     <item name="ambient.on">1</item>
+    <!-- Average battery current draw of display0 while on without backlight.
+         There must be one of these for each display, labeled:
+         screen.on.display0, screen.on.display1, etc...
+         Each display suffix number should match its ordinal in its display device config.
+    -->
     <item name="screen.on">371</item>
+    <!-- Average battery current draw of the backlight at full brightness.
+         The full current draw of display N at full brightness should be the sum of screen.on.displayN
+         and screen.full.displayN
+         There must be one of these for each display, labeled:
+         screen.full.display0, screen.full.display1, etc...
+         Each display suffix number should match its ordinal in its display device config.
+    -->
     <item name="screen.full">1535</item>
-    <item name="bluetooth.active">126</item>
-    <item name="bluetooth.on">0</item>
+
+    <item name="bluetooth.active">126</item> <!-- Bluetooth data transfer -->
+    <item name="bluetooth.on">0</item>  <!-- Bluetooth on & connectable, but not connected -->
     <item name="wifi.on">0</item>
-    <item name="wifi.active">147</item>
-    <item name="wifi.scan">59</item>
+    <item name="wifi.active">147</item>  <!-- WIFI data transfer -->
+    <item name="wifi.scan">59</item>  <!-- WIFI network scanning -->
     <item name="audio">30</item>
     <item name="video">90</item>
-    <item name="camera.flashlight">0.1</item>
-    <item name="camera.avg">337</item>
+    <item name="camera.flashlight">0.1</item> <!-- Avg. power for camera flash -->
+    <item name="camera.avg">337</item> <!-- Avg. power use of camera in standard usecases -->
     <item name="gps.on">0.1</item>
-    <item name="radio.active">0.1</item>
-    <item name="radio.scanning">0.1</item>
+
+    <!-- Radio related values. For modems without energy reporting support in firmware, use
+       radio.active, radio.scanning, and radio.on. -->
+    <item name="radio.active">0.1</item> 
+    <item name="radio.scanning">0.1</item> <!-- cellular radio scanning for signal -->
+    <!-- Current consumed by the radio at different signal strengths, when paging -->
     <array name="radio.on">
         <value>0.2</value>
         <value>0.1</value>
     </array>
+
+    <!-- A list of heterogeneous CPU clusters, where the value for each cluster represents the
+         number of CPU cores for that cluster.
+         Ex:
+         <array name="cpu.clusters.cores">
+           <value>4</value> // cluster 0 has cpu0, cpu1, cpu2, cpu3
+           <value>2</value> // cluster 1 has cpu4, cpu5
+         </array> -->
     <array name="cpu.clusters.cores">
         <value>4</value>
     </array>
+
+    <!-- Different CPU speeds for cluster 0 as reported in
+       /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state.
+       There must be one of these for each cluster, labeled:
+       cpu.speeds.cluster0, cpu.speeds.cluster1, etc... -->
     <array name="cpu.speeds.cluster0">
         <value>850000</value>
         <value>918000</value>
@@ -40,6 +85,10 @@
         <value>1917000</value>
         <value>2001000</value>
     </array>
+
+    <!-- Current at each CPU speed for cluster 0, as per 'cpu.speeds.cluster0'.
+         Like cpu.speeds.cluster0, there must be one of these present for
+         each heterogeneous CPU cluster. -->
     <array name="cpu.active.cluster0">
         <value>55</value>
         <value>74</value>
@@ -58,17 +107,37 @@
         <value>216</value>
         <value>224</value>
     </array>
+
+    <!-- Current when CPU is idle -->
     <item name="cpu.idle">15</item>
+
     <item name="cpu.awake">26</item>
+
+    <!-- Memory bandwidth power values in mA at the rail. There must be one value
+         for each bucket defined in the device tree. -->
     <array name="memory.bandwidths">
         <value>45</value>
     </array>
+
+    <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
     <item name="battery.capacity">4160</item>
+
+
+    <!-- Wifi related values. -->
+    <!-- Idle Receive current for wifi radio in mA. 0 by default-->
     <item name="wifi.controller.idle">0</item>
+    <!-- Rx current for wifi radio in mA. 0 by default-->
     <item name="wifi.controller.rx">0</item>
+    <!-- Tx current for wifi radio in mA. 0 by default-->
     <item name="wifi.controller.tx">0</item>
+
+    <!-- Current at each of the wifi Tx levels in mA. The number of tx levels varies per device
+         and is available only of wifi chipsets which support the tx level reporting. Use
+         wifi.tx for other chipsets. none by default -->
     <array name="wifi.controller.tx_levels" />
+    <!-- Operating volatage for wifi radio in mV. 0 by default-->
     <item name="wifi.controller.voltage">0</item>
+
     <array name="wifi.batchedscan">
         <value>0</value>
         <value>0</value>
@@ -76,6 +145,7 @@
         <value>0</value>
         <value>0</value>
     </array>
+
     <item name="modem.controller.sleep">0</item>
     <item name="modem.controller.idle">0</item>
     <item name="modem.controller.rx">0</item>
@@ -87,7 +157,9 @@
         <value>0</value>
     </array>
     <item name="modem.controller.voltage">0</item>
-    <array name="gps.signalqualitybased">
+
+    <!-- GPS related values. Default is 0.-->
+    <array name="gps.signalqualitybased"> <!-- Strength 0 to 1 -->
         <value>0</value>
         <value>0</value>
     </array>

@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">1</integer>
+
+    <!-- Minimum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness below this level. -->
     <integer name="config_screenBrightnessSettingMinimum">28</integer>
+
+    <!-- Maximum screen brightness allowed by the power manager.
+         The user is forbidden from setting the brightness above this level. -->
     <integer name="config_screenBrightnessSettingMaximum">200</integer>
+
+    <!-- Default screen brightness setting.
+         Must be in the range specified by minimum and maximum. -->
     <integer name="config_screenBrightnessSettingDefault">116</integer>
+
+    <!-- Fast brightness animation ramp rate in brightness units per second-->
     <integer name="config_brightness_ramp_rate_fast">200</integer>
+
+
+    <!-- Control the behavior when the user short presses the power button.
+            0 - Nothing
+            1 - Go to sleep (doze)
+            2 - Really go to sleep (don't doze)
+            3 - Really go to sleep and go home (don't doze)
+            4 - Go to home
+            5 - Dismiss IME if shown. Otherwise go to home
+    -->
     <integer name="config_shortPressOnPowerBehavior">2</integer>
+
+    <!-- Control the behavior when the user long presses the home button.
+            0 - Nothing
+            1 - Launch all apps intent
+            2 - Launch assist intent
+         This needs to match the constants in
+         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
+    -->
     <integer name="config_longPressOnHomeBehavior">0</integer>
+
+    <!-- Idle current for bluetooth controller. -->
     <integer name="config_bluetooth_idle_cur_ma">1</integer>
+
+    <!-- Rx current for bluetooth controller. -->
     <integer name="config_bluetooth_rx_cur_ma">2</integer>
+
+    <!-- Tx current for bluetooth controller. -->
     <integer name="config_bluetooth_tx_cur_ma">3</integer>
+
+    <!-- Operating volatage for bluetooth controller. -->
     <integer name="config_bluetooth_operating_voltage_mv">4</integer>
+
+    <!-- Safe headphone volume index. When music stream volume is below this index
+    the SPL on headphone output is compliant to EN 60950 requirements for portable music
+    players. -->
     <integer name="config_safe_media_volume_index">12</integer>
+
+    <!-- The default intensity level for haptic feedback. See
+         Settings.System.HAPTIC_FEEDBACK_INTENSITY more details on the constant values and
+         meanings. -->
     <integer name="config_defaultHapticFeedbackIntensity">0</integer>
+
+    <!-- The default intensity level for notification vibrations. See
+         Settings.System.NOTIFICATION_VIBRATION_INTENSITY more details on the constant values and
+         meanings. -->
     <integer name="config_defaultNotificationVibrationIntensity">0</integer>
 </resources>
